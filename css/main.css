@@ -39,6 +39,7 @@ p {
 .leftBar h2{
 	margin: 0;
 }
+
 .mainContent {
 	width: 100%;
 	position: relative;
@@ -47,7 +48,7 @@ p {
 	float: right;
 }
 .fontBox{
-	padding: 8px 24px 12px;
+	padding: 4px 18px 8px;
 	border: 1px solid #bbb;
 	width: 100%;
 	box-sizing: border-box;
@@ -59,6 +60,7 @@ p {
 	cursor: pointer;
 }
 textarea.fontBox{
+	font-family: Calibri !important;
 	padding: 18px;
 	height: 500px;
 	font-size: 16px;

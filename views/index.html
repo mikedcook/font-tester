@@ -5,6 +5,7 @@
 	<script src="../app/js/angular-sanitize.min.js"></script>
   <script src="../app/controllers/mainController.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link ng-repeat="(element, prop) in elements" ng-if="prop.font" ng-href="{{ getUrl(prop.font) }}" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<style type="text/css" ng-repeat="(element, prop) in elements">
 		{{ prop.cssClasses }}{
@@ -23,7 +24,9 @@
 					<h2>{{ element }}</h2>
 					<label for="font">Font:</label>
 					<select name="font" class="" ng-model="prop.font">
-						<option ng-repeat="name in fontNames">{{ name }}</option>
+						<option ng-repeat="name in defaultFonts">{{ name }}</option>
+						<option value="">----</option>
+						<option ng-repeat="name in fontItems">{{ name.family }}</option>
 					</select><br />
 					<label for="weight">Weight:</label>
 					<select name="weight" ng-model="prop.weight">
@@ -42,6 +45,7 @@
 					<i class="fa fa-times" ng-show="showEditor" ng-click="showEditor = false"></i>
 				</div>
 		  </div>
+			<div>{{ fontList }}</div>
 		</div>
 		<div class="clear"></div>
 	</div><!--/.container -->

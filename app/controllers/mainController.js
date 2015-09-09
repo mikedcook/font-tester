@@ -1,6 +1,6 @@
 var app = angular.module('fontTester', ['ngSanitize']);
 
-app.controller('mainController', function($scope) {
+app.controller('mainController', function($scope, $http) {
 
 	$scope.elements = {
 		Default:{
@@ -46,18 +46,42 @@ app.controller('mainController', function($scope) {
 			cssClasses:'.fontBox a'
 		}
 	};
-
-	$scope.showEditor = false;
-	$scope.showEditIcon = false;
-
-  $scope.fontNames = new Array(
+	
+	$scope.defaultFonts = new Array(
 		"",
 		"Arial",
+		"Book Antiqua",
 		"Calibri",
-		"Helvetica",
+		"Courier New",
+		"Comic Sans MS",
 		"Georgia",
-		"Times New Roman"
+		"Helvetica",
+		"Impact",
+		"Lucida Sans Unicode",
+		"Lucida Console",
+		"Tahoma",
+		"Times New Roman",
+		"Trebuchet MS",
+		"Verdana"
 	);
+
+	$http.get('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyD9tqdunkVudBtg7-CjATL-CQEE2uvwNbI').
+	then(function(response) {
+		$scope.fontItems = response.data.items;
+	}, function(response) {
+		$scope.fontList = response.status;
+	});
+	
+	$scope.getUrl = function(fontName){
+		var apiUrl = [];
+		apiUrl.push('https://fonts.googleapis.com/css?family=');
+		apiUrl.push(fontName.replace(/ /g, '+'));
+		var url = apiUrl.join('');
+		return url;
+	}
+	
+	$scope.showEditor = false;
+	$scope.showEditIcon = false;
 
   $scope.fontWeights = new Array(
 		"",
