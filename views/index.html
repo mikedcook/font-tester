@@ -2,6 +2,9 @@
 <html ng-app="fontTester" ng-controller="mainController">
 <head>
 	<script src="../app/js/angular.min.js"></script>
+	<script src="../app/js/angular-sanitize.min.js"></script>
+  <script src="../app/controllers/mainController.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<style type="text/css" ng-repeat="(element, prop) in elements">
 		{{ prop.cssClasses }}{
@@ -10,115 +13,37 @@
 			font-style: {{ prop.italics }};
 			color: {{ prop.color }};
 	</style>
-<!--
-		.fontBox {
-			font-family: {{ defaultFont }};
-			font-weight: {{ defaultWeight }};
-			font-style: {{ defaultItalics }};
-			color: {{ defaultColor }};
-		}
-		.fontBox h1 {
-			font-family: {{ h1Font }};
-			font-weight: {{ h1weight }};
-			font-style: {{ h1Italics }};
-			color: {{ h1Color }};
-		}
-		.fontBox h2 {
-			font-family: {{ h2Font }};
-			font-weight: {{ h2Weight }};
-			font-style: {{ h2Italics }};
-			color: {{ h2Color }};
-		}
-		.fontBox h3 {
-			font-family: {{ h3Font }};
-			font-weight: {{ h3Weight }};
-			font-style: {{ h3Italics }};
-			color: {{ h3Color }};
-		}
-		.fontBox a {
-			font-family: {{ aFont }};
-			font-weight: {{ aWeight }};
-			font-style: {{ aItalics }};
-			color: {{ aColor }};
-		}
--->
 </head>
 <body>
-  <div class="leftBar" ng-repeat="(element, prop) in elements">
-		<h3>{{ element }}: {{ prop.font }}</h3>
-		<select ng-model="prop.font">
-			<option ng-repeat="name in fontNames">{{ name }}</option>
-		</select>
-		<select ng-model="prop.weight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" ng-model="prop.italics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
-  </div>
-		
-<!--
-		<h3>Default: <span ng-bind="defaultFont"></span></h3>
-		<select ng-model="defaultFont">
-			<option ng-repeat="name in fontNames">{{ name }}</option>
-		</select>
-		<select ng-model="defaultWeight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" name="defaultItalics" ng-model="defaultItalics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
-		
-		<h3>H1: <span ng-bind="h1Font"></span></h3>
-		<select ng-model="h1Font">
-			<option ng-repeat="name in fontNames">{{ name }}</option>
-		</select>
-		<select ng-model="h1weight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" name="h1Italics" ng-model="h1Italics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
-		
-		<h3>H2: <span ng-bind="h2Font"></span></h3>
-		<select ng-model="h2Font">
-			<option ng-repeat="name in fontNames" >{{ name }}</option>
-		</select>
-		<select ng-model="h2Weight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" name="h2Italics" ng-model="h2Italics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
-		
-		<h3>H3: <span ng-bind="h3Font"></span></h3>
-		<select ng-model="h3Font">
-			<option ng-repeat="name in fontNames">{{ name }}</option>
-		</select>
-		<select ng-model="h3Weight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" name="h3Italics" ng-model="h3Italics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
-		
-		<h3>Links: <span ng-bind="aFont"></span></h3>
-		<select ng-model="aFont">
-			<option ng-repeat="name in fontNames">{{ name }}</option>
-		</select>
-		<select ng-model="aWeight">
-			<option ng-repeat="weight in fontWeights">{{ weight }}</option>
-		</select>
-		<input type="checkbox" name="aItalics" ng-model="aItalics" ng-true-value="'italic'" ng-false-value="'normal'">italicized
--->
-	<div class="mainSection">
-		<div class="fontBox">
-			<h1>Esse enim quam vellet iniquus.</h1>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facillimum id quidem est, <a href='http://loripsum.net/' target='_blank'>Hoc tu nunc in illo probas.</a>. Nisi enim id faceret, cur Plato Aegyptum peragravit, ut a sacerdotibus barbaris numeros et caelestia acciperet? Omnes enim iucundum motum, quo sensus hilaretur. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Sed ille, ut dixi, vitiose. Duo enim genera quae erant, fecit tria. </p>
-
-			<h2>Quod quidem iam fit etiam in Academia.</h2>
-
-			<p>Sed mehercule pergrata mihi oratio tua. Illud dico, ea, quae dicat, praeclare inter se cohaerere. Itaque quantum adiit periculum! ad honestatem enim illum omnem conatum suum referebat, non ad voluptatem. Non laboro, inquit, de nomine. Huius <a href='http://loripsum.net/' target='_blank'>Consequentia exquirere</a> sequens idem faciam. Oculorum, inquit Plato, est in nobis sensus acerrimus, quibus sapientiam non cernimus. Et nemo nimium beatus est; Simus igitur contenti his. De hominibus dici non necesse est. Itaque contra est, ac dicitis; </p>
-
-			<h3>Negat esse eam, inquit, se expetendam.</h3>
-
-			<p>Qua ex cognitione facilior facta est investigatio rerum occultissimarum. Sed ego in hoc resisto; Equidem etiam Epicurum, in physicis quidem, Democriteum puto. Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. At multis malis affectus. In quibus doctissimi illi veteres inesse quiddam caeleste et divinum putaverunt. </p>
+	<div class="container">
+		<div class="header"><h1>Google Font Tester</h1></div>
+		<div class="mainSection">
+		  <div class="leftBar">
+				<form class="element" ng-repeat="(element, prop) in elements">
+					<h2>{{ element }}</h2>
+					<label for="font">Font:</label>
+					<select name="font" class="" ng-model="prop.font">
+						<option ng-repeat="name in fontNames">{{ name }}</option>
+					</select><br />
+					<label for="weight">Weight:</label>
+					<select name="weight" ng-model="prop.weight">
+						<option ng-repeat="weight in fontWeights">{{ weight }}</option>
+					</select>
+					<input type="checkbox" name="italics" ng-model="prop.italics" ng-true-value="'italic'" ng-false-value="'normal'"><label for="italics">Italicized</label>
+				</form>
+		  </div>
+			<div class="mainContent" ng-mouseover="showEditIcon = true" ng-mouseleave="showEditIcon = false">
+				<div class="fontBox" ng-hide="showEditor" ng-bind-html="fillerText">
+				</div>
+				<textarea class="fontBox" ng-show="showEditor" ng-model="fillerText">
+				</textarea>
+				<div class="editIcon">
+					<span ng-show="showEditIcon"><i class="fa fa-pencil" ng-hide="showEditor" ng-click="showEditor = true"></i></span>
+					<i class="fa fa-times" ng-show="showEditor" ng-click="showEditor = false"></i>
+				</div>
+		  </div>
 		</div>
-
-
-  </div>
-
-  <script src="../app/controllers/mainController.js"></script>
+		<div class="clear"></div>
+	</div><!--/.container -->
 </body>
 </html>

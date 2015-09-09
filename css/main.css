@@ -2,3 +2,65 @@ body {
 	 font-family: calibri, arial, sans-serif;
 	 font-size: 18px;
 }
+h1,h2,h3 {
+	margin: 8px 0;
+}
+p {
+	margin: 0 0 12px;
+}
+
+.container{
+	max-width: 1260px;
+	margin: 0 auto;
+}
+.container .leftBar, .container .mainContent{
+	display: table-cell;
+	vertical-align: top;
+}
+.header h1{
+	padding: 18px 8px 10px;
+	font-size: 300%;
+}
+.mainSection {
+	display:table;
+	width: 100%;
+}
+.leftBar {
+	width: 205px;
+	float: left;
+	padding: 8px 14px;
+}
+.leftBar .fontSelect {
+	max-width:140px;
+}
+.leftBar .element{
+	margin-bottom: 22px;
+}
+.leftBar h2{
+	margin: 0;
+}
+.mainContent {
+	width: 100%;
+	position: relative;
+}
+.mainContent .editBtn {
+	float: right;
+}
+.fontBox{
+	padding: 8px 24px 12px;
+	border: 1px solid #bbb;
+	width: 100%;
+	box-sizing: border-box;
+}
+.editIcon {
+	position:absolute;
+	top:10px;
+	right:10px;
+	cursor: pointer;
+}
+textarea.fontBox{
+	padding: 18px;
+	height: 500px;
+	font-size: 16px;
+}
+.clear {clear:both;}
