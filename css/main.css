@@ -99,6 +99,12 @@ p {
 	cursor: pointer;
 	font-size: 130%;
 }
+.editIcon i.edit{
+	color: #ccc;
+}
+.editIcon:hover i.edit{
+	color: #000;
+}
 textarea.fontBox{
 	font-family: Calibri !important;
 	padding: 18px;
@@ -126,8 +132,5 @@ textarea.fontBox{
 	}
 	.mainSection .container {
 		padding: 0;
-	}
-	.editIcon span.ng-hide{
-		display: block !important;
 	}
 }
