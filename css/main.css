@@ -55,6 +55,7 @@ p {
 	display:table;
 }
 .leftBar {
+	position: relative;
 	width: 230px;
 	float: left;
 	margin-right: 20px;
@@ -77,6 +78,28 @@ p {
 	width: 100%;
 	padding: 2px;
 	margin: 4px 0;
+}
+.leftBar .info {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+  width: 220px;
+}
+.leftBar .info i {
+	float: right;
+	color: #444;
+}
+.leftBar .info i.mobile {
+	display: none;
+	font-size: 20px;
+}
+.leftBar .infoText {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	padding: 0 8px;;
+	background: #fff;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .mainContent {
@@ -111,6 +134,8 @@ textarea.fontBox{
 	height: 576px;
 	font-size: 16px;
 }
+	
+}
 .clear {clear:both;}
 
 /*---- responsive ----*/
@@ -132,5 +157,11 @@ textarea.fontBox{
 	}
 	.mainSection .container {
 		padding: 0;
+	}
+	.leftBar .info i.mobile {
+		display: block;
+	}
+	.leftBar .info i.desktop {
+		display: none;
 	}
 }

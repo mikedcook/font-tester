@@ -43,6 +43,17 @@
 	<div class="mainSection">
 		<div class="container">
 		  <div class="leftBar">
+				<div class="info">
+					<i class="fa fa-info-circle desktop" ng-mouseover="showInfo = true" ng-mouseleave="showInfo = false"></i>
+					<i class="fa fa-info-circle mobile" ng-click="showInfo = !showInfo"></i>
+					<div class="infoText" ng-show="showInfo">
+						<h3>Tips</h3>
+						<p>Click in a box and start typing to quickly narrow down your search.</p>
+						<p>Click in a box and use the up/down arrow keys to easily preview fonts.</p>
+						<p>Use Headers to change all headers. Use H1, H2, and H3 to override headers individually.</p>
+						<p>Click the "Edit" icon in the text area to change the content. You can also copy and paste your own HTML into the box.</p>
+					</div>
+				</div>
 				<form class="element" ng-repeat="(element, prop) in elements">
 					<h2>{{ element }}</h2>
 					<select name="font" class="fontSelector" ng-model="prop.font">
