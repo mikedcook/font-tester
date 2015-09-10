@@ -126,4 +126,7 @@ textarea.fontBox{
 	.mainSection .container {
 		padding: 0;
 	}
+	.editIcon span.ng-hide{
+		display: block !important;
+	}
 }
