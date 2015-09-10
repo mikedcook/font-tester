@@ -1,6 +1,8 @@
 body {
-	 font-family: calibri, arial, sans-serif;
-	 font-size: 18px;
+	font-family: 'Roboto',calibri, arial, sans-serif;
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
 }
 h1,h2,h3 {
 	margin: 8px 0;
@@ -12,32 +14,66 @@ p {
 .container{
 	max-width: 1260px;
 	margin: 0 auto;
+  padding: 0 10px;
 }
-.container .leftBar, .container .mainContent{
+.leftBar, .mainContent{
 	display: table-cell;
 	vertical-align: top;
+  box-sizing: border-box;
+}
+.header{
+	background: #444;
+	color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	position: relative;
+	z-index: 10;
 }
 .header h1{
-	padding: 18px 8px 10px;
+	padding: 24px 0;
+	margin:0;
 	font-size: 300%;
+	font-weight: 500;
+}
+.header h1 img.logo {
+	vertical-align: bottom;
+	position: relative;
+	bottom: -4px;
+	padding-right: 18px;
+}
+.header img.logo, .header h1 > div{
+	display: inline-block;
 }
 .mainSection {
 	display:table;
 	width: 100%;
+	padding: 20px 0;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
 }
 .leftBar {
-	width: 205px;
+	width: 230px;
 	float: left;
-	padding: 8px 14px;
+	margin-right: 20px;
+	background: #f7f7f7;
+	padding: 12px 16px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .leftBar .fontSelect {
 	max-width:140px;
 }
 .leftBar .element{
-	margin-bottom: 22px;
+	margin-bottom: 16px;
 }
 .leftBar h2{
+	color: #4285f4;
 	margin: 0;
+	font-size: 120%;
+}
+.leftBar select.fontSelector {
+	width: 100%;
+	padding: 2px;
+	margin: 4px 0;
 }
 
 .mainContent {
@@ -58,11 +94,32 @@ p {
 	top:10px;
 	right:10px;
 	cursor: pointer;
+	font-size: 130%;
 }
 textarea.fontBox{
 	font-family: Calibri !important;
 	padding: 18px;
-	height: 500px;
+	height: 614px;
 	font-size: 16px;
 }
 .clear {clear:both;}
+
+/*---- responsive ----*/
+@media only screen and (max-width: 600px) {
+	.mainSection {
+		display: block;
+		float: left;
+		padding: 0;
+	}
+	.leftBar, .mainContent {
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	.leftBar select.fontSelector {
+		padding: 6px;
+	}
+	.mainSection .container {
+		padding: 0;
+	}
+}
