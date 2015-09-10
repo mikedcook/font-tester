@@ -1,13 +1,13 @@
 <!doctype html>
 <html ng-app="fontTester" ng-controller="mainController">
 <head>
-	<script src="../app/js/angular.min.js"></script>
-	<script src="../app/js/angular-sanitize.min.js"></script>
-  <script src="../app/controllers/mainController.js"></script>
+	<script src="app/js/angular.min.js"></script>
+	<script src="app/js/angular-sanitize.min.js"></script>
+  <script src="app/controllers/mainController.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:900italic,700,500,300,100,400' rel='stylesheet' type='text/css'>
   <link ng-repeat="(element, prop) in elements" ng-if="prop.font" ng-href="{{ getUrl(prop.font) }}" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style type="text/css" ng-repeat="(element, prop) in elements">
 		{{ prop.cssClasses }}{
 			font-family: {{ prop.font }};
@@ -19,7 +19,7 @@
 <body>
 	<div class="header">
 		<div class="container">
-			<h1><img class="logo" src="../images/google.png" alt="Google" /><div> Font Tester</div></h1>
+			<h1><img class="logo" src="images/google.png" alt="Google" /><div> Font Tester</div></h1>
 		</div>
 	</div>
 	<div class="mainSection">
