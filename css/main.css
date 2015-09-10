@@ -39,6 +39,7 @@ p {
 	position: relative;
 	bottom: -4px;
 	padding-right: 18px;
+	max-width: 215px;
 }
 .header img.logo, .header h1 > div{
 	display: inline-block;
