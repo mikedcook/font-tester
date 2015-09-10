@@ -44,12 +44,14 @@ p {
 	display: inline-block;
 }
 .mainSection {
-	display:table;
 	width: 100%;
 	padding: 20px 0;
 	box-sizing: border-box;
 	position: relative;
 	z-index: 1;
+}
+.mainSection .container {
+	display:table;
 }
 .leftBar {
 	width: 230px;
@@ -99,7 +101,7 @@ p {
 textarea.fontBox{
 	font-family: Calibri !important;
 	padding: 18px;
-	height: 614px;
+	height: 576px;
 	font-size: 16px;
 }
 .clear {clear:both;}
@@ -107,9 +109,11 @@ textarea.fontBox{
 /*---- responsive ----*/
 @media only screen and (max-width: 600px) {
 	.mainSection {
-		display: block;
 		float: left;
 		padding: 0;
+	}
+	.mainSection .container {
+		display: block;
 	}
 	.leftBar, .mainContent {
 		display: block;
